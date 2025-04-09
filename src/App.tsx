@@ -1,19 +1,26 @@
-import { useState } from 'react'
-import { Button } from './components/ui/button'
+import { Header, Footer } from "@/components/index"
+import { Outlet, useLocation } from 'react-router-dom'
 
 export default function App() {
-  const [count, setCount] = useState(0)
+  const location = useLocation()
+  const routes = ["/login", "/signup"]
 
-  const addValue = () => {
-    setCount((count) => count + 1)
+  if (routes.includes(location.pathname)) {
+    return (
+      <>
+        <Outlet />
+      </>
+    )
+  } else {
+    return (
+      <>
+        <Header />
+          <main>
+            <Outlet />
+          </main>
+        <Footer />
+      </>
+    )
   }
-
-  return (
-    <>
-      <div className='m-5'>
-        <Button className='cursor-pointer' onClick={addValue}>{count}</Button>
-      </div>
-    </>
-  )
 }
 
