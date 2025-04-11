@@ -8,8 +8,9 @@ export default function Footer() {
         <div className='w-full h-80 flex flex-row justify-between '>
           <div className='w-96 h-40 my-7 mx-20'>
             <div
-            className='bg-white w-40 h-14 text-lg font-sans font-semibold'
-            >Ajab Gull Bhatti</div>
+              className='bg-white w-40 h-14 text-3xl font-bold'
+              >Ajab<span className='text-orange-700'>Comm</span>
+            </div>
             <div className='py-20 font-sans text-[#484a4d]'>
               <span className='flex gap-[4px]'>
                 © 2023

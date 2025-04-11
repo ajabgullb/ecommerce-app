@@ -6,7 +6,7 @@ interface IContainer {
 
 export default function Container({ children }: IContainer) {
   return (
-    <div>
+    <div className='m-3 p-6 flex items-center'>
       {children}
     </div>
   )
