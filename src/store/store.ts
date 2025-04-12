@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
-import authSlice from "./authSlice"
+import { authSlice, cartSlice } from "./features/index"
 
 const store = configureStore({
-  reducer: {auth: authSlice}
+  reducer: {
+    auth: authSlice,
+    cart: cartSlice,
+  }
 })
 
 export default store
