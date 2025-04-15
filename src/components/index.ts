@@ -9,6 +9,7 @@ import Product from "./Product/Product";
 import Input from "./Input";
 import LoginForm from "./LoginForm/LoginForm";
 import SignupForm from "./SignupForm/SignupForm";
+import Cart from "./Cart/Cart";
 
 export {
   Header,
@@ -22,5 +23,6 @@ export {
   Input,
   LoginForm,
   SignupForm,
+  Cart,
 }
 
