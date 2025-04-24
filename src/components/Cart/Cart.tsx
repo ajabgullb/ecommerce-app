@@ -14,7 +14,7 @@ import {
 
 interface ICartProduct {
   id: number
-  name: string
+  title: string
   price: number
   thumbnail: string
   description: string
@@ -51,7 +51,7 @@ export default function Cart() {
 
             <div>
               <CardContent className="flex flex-col gap-2">
-                <CardTitle>{cartItem.name}</CardTitle>
+                <CardTitle>{cartItem.title}</CardTitle>
                 <CardDescription>{cartItem.description}</CardDescription>
                 <p className="font-bold mt-4">Price: ${cartItem.price}</p>
               </CardContent>

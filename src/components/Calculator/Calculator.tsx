@@ -19,6 +19,7 @@ export default function Calculator() {
 
   const countingProducts = () => {
     const cartLength = cartItems.length
+    console.log(cartLength)
     setNumberOfProducts(cartLength)
   }
 
@@ -27,6 +28,7 @@ export default function Calculator() {
     cartItems.map((cartItem: ICartProductDetails) => (
       finalPrice += cartItem.price
     ))
+    console.log(finalPrice)
 
     setTotalAmount(finalPrice)
   }
@@ -35,7 +37,7 @@ export default function Calculator() {
     countingProducts()
     countingTotalAmount()
 
-  }, [numberOfProducts, totalAmount])
+  }, [numberOfProducts, totalAmount, cartItems])
 
   return (
     <div className="w-full rounded-lg shadow-xl mx-2 my-3 p-2">

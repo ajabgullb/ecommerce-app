@@ -19,6 +19,7 @@ interface IProduct {
   title: string
   thumbnail: string
   description: string
+  price: number
 }
 
 interface ICartState {
@@ -41,13 +42,25 @@ export default function Products() {
     }
   }
 
+  // Add to Cart Function
   const addToCart = (id: IProduct["id"]) => {
-    const cartProduct = products.map((product: IProduct) => {
-      if (id === product.id) return product
+    let cartProduct = {}
+
+    products.map((product: IProduct) => {
+      if (id === product.id) {
+        cartProduct = {
+          id: product.id,
+          title: product.title,
+          thumbnail: product.thumbnail,
+          description: product.description,
+          price: product.price
+        }
+
+        return cartProduct
+      }
     })
 
     cartItems = [cartProduct, ...cartItems]
-    console.log(cartItems)
     dispatch(addCartSlice(cartItems))
   }
 
