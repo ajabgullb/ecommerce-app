@@ -8,14 +8,17 @@ import { DropdownMenu,
   DropdownMenuSeparator, DropdownMenuTrigger 
 } from "@/components/ui/dropdown-menu"
 
-interface IAuthStatus {
+interface IStoreState {
   state: Object
   auth: { authStatus: Boolean }
+  cart: { cartData: any[] }
 }
 
 export default function Header() {
   const navigate = useNavigate()
-  const isLogedIn = useSelector((state: IAuthStatus) => state.auth.authStatus)
+  const isLogedIn = useSelector((state: IStoreState) => state.auth.authStatus)
+  const cart = useSelector((state: IStoreState) => state.cart.cartData)
+  const cartLength = cart.length
 
   return (
     <header className='sticky w-full mb-3 p-5 flex justify-around items-center border-b-black border-1'>
@@ -90,10 +93,15 @@ export default function Header() {
           </div>
         )}
 
-        <div>
-          <Link to="/cart">
-            <ShoppingCart  />
-          </Link>
+        <div className='flex gap-2'>
+          <div>
+            <Link to="/cart">
+              <ShoppingCart  />
+            </Link>
+          </div>
+          <div>
+            {cartLength}
+          </div>
         </div>
       </div>
 

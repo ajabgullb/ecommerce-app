@@ -37,7 +37,7 @@ export default function Calculator() {
     countingProducts()
     countingTotalAmount()
 
-  }, [numberOfProducts, totalAmount, cartItems])
+  }, [cartItems])
 
   return (
     <div className="w-full rounded-lg shadow-xl mx-2 my-3 p-2">
