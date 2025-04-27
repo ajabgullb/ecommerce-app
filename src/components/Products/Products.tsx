@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
-import { productsAPI } from "@/config/config"
+import { fetchProducts } from "@/config/config"
 import { Button } from "../ui/button"
 import { useSelector, useDispatch } from "react-redux"
 import { addToCart as addCartSlice } from "@/store/features/slices/cartSlice"
@@ -31,16 +30,6 @@ export default function Products() {
   const [products, setProducts] = useState([])
   const dispatch = useDispatch()
   let cartItems = useSelector((state: ICartState) => state.cart.cartData)
-
-  const fetchProducts = async () => {
-    const response = await axios.get(productsAPI)
-    .then(res => res.data)
-    .catch(err => console.error(err))
-
-    if (response.data || response.data.data) {
-      return response.data.data
-    }
-  }
 
   // Add to Cart Function
   const addToCart = (id: IProduct["id"]) => {
